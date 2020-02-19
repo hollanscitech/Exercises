@@ -1,1 +1,1 @@
-ls *.sh | sed -e 's/\.sh$//' | cat -e
+ls $find_sh *.sh | sed -e 's/\.sh$//' | cat -e
