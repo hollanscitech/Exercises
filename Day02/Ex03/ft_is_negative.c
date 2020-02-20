@@ -8,17 +8,14 @@ void ft_putchar(char c)
 
 void ft_is_negative(int n)
 {
-  char ch;
-  int P;
-  int N;
-  
+  char ch;  
   if (ch >= 0)
     {
-      ft_putchar("P");
+      ft_putchar("P", n);
     }
   if (ch < 0)
     {
-      ft_putchar("N");
+      ft_putchar("N", n);
     }
 }
 
