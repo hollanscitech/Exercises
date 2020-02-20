@@ -1,9 +1,23 @@
 #include <unistd.h>
 
+int ft_putchar(char a)
+{
+  write(1, &c, 1);
+  return (0);
+}
+
+void ft_print_numbers(void)
+{
+  char ch;
+  ch = '1';
+  while(ch <= '9')
+    {
+      ft_putchar(ch);
+      ch++;
+    }
+}
+
 int main(void)
 {
-    ft_putchar(char a);
-    a = 1;
-    char a >= 9;
-    return 0;
+  ft_print_numbers(void)
 }
