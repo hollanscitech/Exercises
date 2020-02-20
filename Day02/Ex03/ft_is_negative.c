@@ -8,7 +8,9 @@ void ft_putchar(char c)
 
 void ft_is_negative(int n)
 {
-  char ch;  
+  char ch;
+  ch P;
+  ch N;
   if (ch >= 0);
     {
       ft_putchar('P');
