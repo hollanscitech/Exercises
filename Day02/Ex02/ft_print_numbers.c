@@ -19,5 +19,5 @@ void ft_print_numbers(void)
 
 int main(void)
 {
-  ft_print_numbers(0); 
+  ft_print_numbers(); 
 }
