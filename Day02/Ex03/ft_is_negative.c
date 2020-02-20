@@ -10,11 +10,11 @@ void ft_is_negative(int n)
 {
   char ch;
   ch = '1';
-  if(n >= '0')
+  if(n >= 0)
     {
       ft_putchar('P');
     }
-  else(n < '0');
+  else(n < 0);
     {
       ft_putchar('N');
     }
