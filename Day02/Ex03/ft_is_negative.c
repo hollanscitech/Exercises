@@ -9,15 +9,15 @@ void ft_putchar(char c)
 void ft_is_negative(int n)
 {
   char ch;
-  int"P" => 0;
-  int "N" < 0;
+  int 'P' => 0;
+  int 'N' < 0;
   if (ch >= 0)
     {
-      ft_putchar("P");
+      ft_putchar('P');
     }
    if (ch < 0)
     {
-      ft_putchar("N");
+      ft_putchar('N');
     }
 }
 
