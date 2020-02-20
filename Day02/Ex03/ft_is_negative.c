@@ -2,7 +2,7 @@
 
 void ft_putchar(char c)
 {
-  write(1, &c, 1)
+  write(1, &c, 1);
   return;
 }
 
@@ -10,13 +10,13 @@ void ft_is_negative(void)
 {
   char ch;
   ch = "N", "P";
-  while(ch = n)
+  while(ch = n);
     {
       ft_putchar("P");
     }
-  while(ch = -n)
+    while(ch = -n);
     {
-      ft_putchar("N")
+      ft_putchar("N");
     }
 }
 
