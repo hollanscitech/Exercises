@@ -3,7 +3,7 @@
 int ft_putchar(char a)
 {
   write(1, &a, 1);
-  return (0);
+  return (void);
 }
 
 void ft_print_numbers(void)
