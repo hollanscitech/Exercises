@@ -15,6 +15,10 @@ void ft_is_negative(int n)
     {
       ft_putchart("P");
     }
+  if (n < 0)
+    {
+      ft_putchar("N");
+    }
 }
 
 int main(void)
