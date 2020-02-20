@@ -6,27 +6,18 @@ void ft_putchar(char c)
   return;
 }
 
-void ft_is_negative(void)
+void ft_is_negative(int n)
 {
   char ch;
-  ch = '1';
-  if (ch >= 0);
+  ch n;
+  int n;
+  if (n >= 0)
     {
-      ft_putchar("P");
-    }
-    if (ch < 0);
-    {
-      ft_putchar("N");
+      ft_putchart("P");
     }
 }
 
-void ft_is_negative(int n)
-	{
-	  ch = n;
-	}
-
-int main (void)
+int main(void)
 {
-  ft_is_negative(int n);
-  return (0);
+  ft_is_negative();
 }
