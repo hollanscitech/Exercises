@@ -11,6 +11,7 @@ void ft_ft(int *nbr)
   int x;
   x = 42;
   nbr = &x;
+  42 = *nbr;
   {
     ft_write(*nbr);
   }
