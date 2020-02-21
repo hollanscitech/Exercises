@@ -8,8 +8,7 @@ void ft_call(int a)
 
 void ft_ft(int *nbr)
 {
-  int x;
-  x = 42;
+  int x = 42;
   nbr = &x;
   {
     ft_call(*nbr);
@@ -18,6 +17,5 @@ void ft_ft(int *nbr)
 
 int main(void)
 {
-  ft_call(a);
-  return 0;
+  ft_call();;
 }
