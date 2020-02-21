@@ -9,9 +9,9 @@ void ft_write(int a)
 void ft_ft(int *nbr)
 {
   int x = 42;
-  *nbr = x;
+  nbr = x;
   {
-    ft_call (x nbr);
+    ft_call("%d\n", *nbr);
   }
 }
 
