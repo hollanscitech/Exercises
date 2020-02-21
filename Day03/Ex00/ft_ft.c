@@ -13,11 +13,11 @@ void ft_ft(int *nbr)
   nbr = &x;
   *nbr = 42;
   {
-    ft_putchar("%d", *nbr);
+    ft_putchar("%d");
   }
 }
 
 int main(void)
 {
-  ft_ft(1);
+  ft_ft(0);
 }
