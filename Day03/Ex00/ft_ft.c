@@ -7,7 +7,7 @@ void ft_ft(int *nbr)
   nbr = &x;
   *nbr = 42;
   {
-    printf("%d", x);
+    printf("%d\n", *nbr);
   }
 }
 
