@@ -6,7 +6,7 @@ void ft_ft(int *nbr);
 int main(void)
 {
   int x;
-  int *nbr = x;
+  int nbr = x;
   x = 42;
   ft_ft(void);
   {
