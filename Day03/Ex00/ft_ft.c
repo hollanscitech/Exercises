@@ -8,9 +8,9 @@ int main(void)
   int x;
   int *nbr;
   x = 42;
-  nbr = x;
+  nbr = &x;
 
-  ft_ft(x, nbr);
+  ft_ft(0);
   {
     printf("%d\n", x);
   }
