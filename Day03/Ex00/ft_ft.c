@@ -13,5 +13,5 @@ void ft_ft(int *nbr)
 
 int main(void)
 {
-  ft_ft(int *nbr);
+  ft_ft(0);
 }
