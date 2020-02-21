@@ -8,10 +8,12 @@ void ft_putchar(int a)
 
 void ft_ft(int *nbr)
 {
-  int x = 42;
-  int *nbr = &x;
+  int x;
+  x = '42';
+  nbr = &x;
   {
     ft_putchar(x);
+  }
 }
 
 int main(void)
