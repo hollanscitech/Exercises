@@ -6,8 +6,10 @@ void ft_ft(int *nbr);
 int main(void)
 {
   int x;
-  int  nbr = &x;
+  int *nbr;
   x = 42;
-  int *nbr = 42;
-  ft_ft();
+  int ft_ft(void);
+  {
+    printf("%d\n", *nbr);
+  }
 }
