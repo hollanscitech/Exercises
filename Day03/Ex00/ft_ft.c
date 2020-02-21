@@ -12,7 +12,7 @@ void ft_ft(int *nbr)
   x = '42';
   nbr = &x;
   {
-    ft_write(nbr);
+    ft_write(*nbr);
   }
 }
 
