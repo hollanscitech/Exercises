@@ -1,15 +1,17 @@
 #include <unistd.h>
 
-void ft_ft(int *nbr)
+void ft_putchar(int a)
 {
-  write(1, &nbr, 3);
+  write(1, &a, 3);
   return;
 }
 
-void ft_ft(void)
+void ft_ft(int *nbr)
 {
-  int a = 42;
-  int *nbr = &a;
+  int x = 42;
+  int *nbr = &x;
+  {
+    ft_putchar(x);
 }
 
 int main(void)
