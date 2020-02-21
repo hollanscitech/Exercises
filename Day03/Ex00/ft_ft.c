@@ -2,14 +2,14 @@
 
 void ft_ft(int *nbr)
 {
-  write(1, &nbr, 3);
+  write(1, &nbr, 3)
   return;
 }
-int ft_ft()
+
+void ft_ft(void)
 {
-  int x = 42;
-  nbr = &x;
-  return;
+  int a = 42;
+  int *nbr = &a;
 }
 
 int main(void)
