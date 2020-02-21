@@ -1,8 +1,8 @@
 #include <unistd.h>
 
-void ft_write(int a)
+void ft_putchar(int a)
 {
-  write(1, &a, 2);
+  write(1, &a, 1);
   return;
 }
 
@@ -13,12 +13,11 @@ void ft_ft(int *nbr)
   nbr = &x;
   *nbr = 42;
   {
-    ft_write(x);
+    ft_putchar("%d", *nbr);
   }
 }
 
 int main(void)
 {
-  ft_ft();
-  return 0;
+  ft_ft(1);
 }
