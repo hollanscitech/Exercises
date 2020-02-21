@@ -3,15 +3,14 @@
 void ft_ft(int *nbr)
 {
   int x;
-  x = 42;
   nbr = &x;
-  *nbr = 42;
+  x = 42;
   {
-    printf("%d\n", x);
+    printf("%d\n", *nbr);
   }
 }
 
 int main(void)
 {
-  ft_ft(int);
+  ft_ft();
 }
