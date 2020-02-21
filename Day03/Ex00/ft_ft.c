@@ -11,6 +11,7 @@ void ft_ft(int *nbr)
   int x;
   x = 42;
   nbr = &x;
+  ft_ft(x *nbr);
   {
     ft_call(*nbr);
   }
@@ -18,5 +19,5 @@ void ft_ft(int *nbr)
 
 int main(void)
 {
-  ft_ft(x);
+  ft_ft();
 }
