@@ -2,7 +2,7 @@
 
 void ft_ft(int *nbr)
 {
-  write(1, &nbr, 3)
+  write(1, &nbr, 3);
   return;
 }
 
