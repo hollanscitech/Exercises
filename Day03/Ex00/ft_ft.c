@@ -2,11 +2,13 @@
 
 void ft_ft(int *nbr)
 {
-  nbr = 42;
-  return (0);
+  int *nbr;
+  int x = 42;
+  nbr = &x;
+  return;
 }
 
 int main(void)
 {
-  ft_ft()
+  ft_ft(x)
 }
