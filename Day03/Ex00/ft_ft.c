@@ -1,17 +1,18 @@
 #include <unistd.h>
 
-void ft_write(int a)
+int ft_write(int a)
 {
   write(1, &a, 2);
-  return;
+  return (0);
 }
 
 void ft_ft(int *nbr)
 {
-  int x = 42;
+  int x;
+  x = '42';
   nbr = &x;
   {
-    ft_write("%d\n");
+    ft_write("%d\n", nbr);
   }
 }
 
