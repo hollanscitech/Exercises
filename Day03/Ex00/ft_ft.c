@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include<stdio.h>
 
 void ft_ft(int *nbr)
 {
@@ -12,5 +13,5 @@ void ft_ft(int *nbr)
 
 int main(void)
 {
-  ft_ft();
+  ft_ft(x);
 }
