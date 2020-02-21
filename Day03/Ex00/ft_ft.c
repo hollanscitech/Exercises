@@ -3,7 +3,7 @@
 void ft_write(int a)
 {
   write(1, &a, 2);
-  return 0;
+  return;
 }
 
 void ft_ft(int *nbr)
@@ -13,7 +13,7 @@ void ft_ft(int *nbr)
   nbr = &x;
   *nbr = 42;
   {
-    ft_write();
+    ft_write("");
   }
 }
 
