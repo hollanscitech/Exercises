@@ -9,9 +9,9 @@ void ft_call(int a)
 void ft_ft(int *nbr)
 {
   int x = 42;
-  nbr = &x;
+  *nbr = &x;
   {
-    ft_call(&x);
+    ft_call(*nbr);
   }
 }
 
