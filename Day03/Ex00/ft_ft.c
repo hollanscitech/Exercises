@@ -10,14 +10,14 @@ void ft_ft(int *nbr)
 {
   int x;
   x = 42;
-  nbr = &x;
+  nbr = x;
   *nbr = 42;
   {
-    ft_write(*nbr);
+    ft_write(int);
   }
 }
 
 int main(void)
 {
-  ft_ft(int *nbr);
+  ft_ft(*nbr);
 }
