@@ -9,7 +9,7 @@ int ft_write(int a)
 void ft_ft(int *nbr)
 {
   int x;
-  x = "42";
+  x = 42;
   nbr = &x;
   {
     ft_write(*nbr);
