@@ -11,12 +11,11 @@ void ft_ft(int *nbr)
   int x = 42;
   nbr = &x;
   {
-    ft_call(*nbr);
+    ft_call(&x);
   }
 }
 
 int main(void)
 {
   ft_ft();
-  return;
 }
