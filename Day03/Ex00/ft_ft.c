@@ -1,9 +1,9 @@
 #include <unistd.h>
 
-void ft_putchar(int a)
+int ft_putchar(int a)
 {
   write(1, &a, 1);
-  return;
+  return 0;
 }
 
 void ft_ft(int *nbr)
