@@ -13,5 +13,6 @@ int main(void)
 
 void ft_ft(int *nbr)
 {
-  int x = 42;
+
+  *nbr = 42;
 }
