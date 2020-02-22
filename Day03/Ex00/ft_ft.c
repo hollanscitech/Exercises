@@ -4,7 +4,7 @@
 void ft_ft(int *nbr);
 {
   nbr = 42;
-  return 0;
+  return;
 }
 
 int main(void)
