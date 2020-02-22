@@ -1,4 +1,4 @@
-]0;95;0c#include <unistd.h>
+#include <unistd.h>
 #include<stdio.h>
 
 void ft_ft(int *nbr);
