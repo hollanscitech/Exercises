@@ -5,7 +5,7 @@ void ft_ft(int *nbr);
 
 int main(void)
 {
-  int *nbr, x;
+  int nbr, x;
   nbr = &x;
   ft_ft(&x);
   printf("%d\n", x);
@@ -13,5 +13,5 @@ int main(void)
 
 void ft_ft(int *nbr)
 {
-  x = 42;
+  int x = 42;
 }
