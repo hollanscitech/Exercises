@@ -11,3 +11,7 @@ int main(void)
   return 0;
 }  
 
+void ft_ft(int *nbr)
+{
+  nbr = x;
+}
