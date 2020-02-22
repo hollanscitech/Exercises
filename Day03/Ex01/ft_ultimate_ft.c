@@ -9,6 +9,6 @@ void ft_ft(int **nbr)
 int main(void)
 {
   int x;
-  ft_ft(&x);
+  ft_ft(&x, *nbr);
   printf("%d\n", x);
 }  
