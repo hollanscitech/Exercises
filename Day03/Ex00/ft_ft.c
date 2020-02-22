@@ -12,7 +12,7 @@ int main(void)
   nbr = &x;
   ft_ft(&x);
     {
-      printf("nbr = %d", *nbr);
+      printf("*nbr = %d", *nbr);
     }
 }
 
