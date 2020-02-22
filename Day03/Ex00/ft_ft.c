@@ -6,7 +6,7 @@ void ft_ft(int *nbr);
 int main(void)
 {
   int x = 42;
-  nbr = &x;
+  int nbr = &x;
   ft_ft(&x);
   printf("%d\n", x);
   return 0;
