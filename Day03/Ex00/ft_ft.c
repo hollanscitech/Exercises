@@ -8,6 +8,7 @@ int main(void)
 {
   int x;
   x = 42;
+  int *nbr;;
   nbr = &x;
   ft_ft(*nbr)
     {
