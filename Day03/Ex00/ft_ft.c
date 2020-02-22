@@ -10,7 +10,7 @@ int main(void)
   x = 42;
   int *nbr;
   nbr = &x;
-  ft_ft(x)
+  ft_ft(&x);
     {
       printf("nbr = %d", *nbr);
     }
