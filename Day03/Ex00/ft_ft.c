@@ -7,7 +7,11 @@ int main(void)
 {
   int x;
   nbr = &x;
-  ft_ft(x);
-  nbr = 42;
+  ft_ft(&x);
   printf("%d\n", x);
 }  
+
+void ft_ft(int *nbr)
+{
+  x = 42;
+}
