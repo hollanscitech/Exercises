@@ -10,3 +10,7 @@ int main(void)
   printf("%d", x);
   return 0;
 }  
+void ft_ft(int *nbr)
+{
+  *nbr = x;
+}
