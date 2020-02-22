@@ -4,7 +4,7 @@
 void ft_ft(int **nbr)
 {
  int *nbr = 42;
- *nbr = **nbr;
+ &nbr = **nbr;
 }
 
 int main(void)
