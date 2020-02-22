@@ -1,14 +1,18 @@
 #include <unistd.h>
 #include<stdio.h>
 
-void ft_ft(int *nbr);
+void ft_ft(int *nbr)
+
 
 int main(void)
+
 {
   int x;
-  int *nbr;
   x = 42;
   nbr = &x;
-  printf("%s", ft_ft);
+  ft_ft(*nbr)
+    {
+      printf("nbr = %d", *nbr);
+    }
 }
 
