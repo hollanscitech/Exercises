@@ -2,13 +2,11 @@
 #include<stdio.h>
 
 void ft_ft(int *nbr);
-{
-  *nbr = (*nbr)
-}
+
 int main(void)
 {
-  int x;
-  x = 42;
+  int x = 42;
   ft_ft(&x);
-  printf("x = %d",x);
+  printf("%d", x);
+  return 0;
 }  
