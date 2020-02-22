@@ -12,5 +12,5 @@ int main(void)
 }  
 void ft_ft(int *nbr)
 {
-  nbr = x;
+  nbr = 'x';
 }
