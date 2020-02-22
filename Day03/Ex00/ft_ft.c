@@ -8,6 +8,6 @@ int main(void)
   int nbr;
   int x;
   ft_ft(&x);
-  *nbr = 42;
+  nbr = 42;
   printf("%d\n", x);
 }  
