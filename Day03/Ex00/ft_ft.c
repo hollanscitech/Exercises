@@ -8,5 +8,5 @@ int main(void)
   int x;
   x = 42;
   ft_ft(&x);
-  printf("x = %d", x);
+  printf("x = %d",x);
 }  
