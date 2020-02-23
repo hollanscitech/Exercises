@@ -19,5 +19,5 @@ int main(void)
   int *********j = &i;
   printf("%d\n", *********j);
   ft_ultimate_ft(j);
-  printf("d\n", *********j);
+  printf("%d\n", *********j);
 }
