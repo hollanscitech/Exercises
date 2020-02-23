@@ -14,6 +14,6 @@ int main(void)
   num1 = 10;
   num2 = 20;
   ft_swap(&num1, &num2);
-  printf("%d\n, %d\n", num1, num2);
+  printf("%d\n%d\n", num1, num2);
   return 0;
 }
