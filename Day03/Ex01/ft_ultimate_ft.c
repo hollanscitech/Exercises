@@ -1,15 +1,23 @@
-#include <unistd.h>
 #include <stdio.h>
 
-void ft_ft(int **nbr)
+void ft_ultimate_ft(int *********nbr)
 {
- int *nbr = 42;
- &nbr = **nbr;
+  *********nbr = 42;
 }
 
 int main(void)
 {
-  int x;
-  ft_ft(&x, *nbr);
-  printf("%d\n", x);
-}  
+  int a = 0;
+  int *b = &a;
+  int **c = &b;
+  int ***d = &c;
+  int ****e = &d;
+  int *****f = &e;
+  int ******g = &f;
+  int *******h = &g;
+  int ********i = &h;
+  int *********j = &i;
+  printf("%d\n", *********j);
+  ft_ultimate_ft(j);
+  printf("d\n", *********j);
+}
