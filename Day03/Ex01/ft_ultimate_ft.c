@@ -17,7 +17,6 @@ int main(void)
   int *******h = &g;
   int ********i = &h;
   int *********j = &i;
-  printf("%d\n", *********j);
   ft_ultimate_ft(j);
   printf("%d\n", *********j);
 }
