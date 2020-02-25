@@ -3,7 +3,7 @@
 int ft_iterative_factorial(int b)
 {
   int x = 1, i;
-  for(i = 2; i <= nb; i++)
+  for(i = 2; i <=nb; i++)
     x *= i;
   return x;
 }
