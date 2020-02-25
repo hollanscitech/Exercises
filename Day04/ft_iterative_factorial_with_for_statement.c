@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int ft_iterative_factorial(int b)
+int ft_iterative_factorial(int nb)
 {
   int x = 1, i;
   for(i = 2; i <=nb; i++)
