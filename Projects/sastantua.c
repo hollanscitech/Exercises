@@ -13,19 +13,24 @@ void sastantua(int size)
     { 
       x = 0;
       while (x < size)
-	{
-	  ft_putchar(47);
-	  x++;
+       	{
+     	  ft_putchar(47);
+      	  x++;
           while (x < size)
-	    {
-	      ft_putchar(42);
-	      x++;
-	      while (x < size)
-		{
-		  ft_putchar(92);
-		  x++;
-		}
-	    }
+    	    {
+     	      ft_putchar(42);
+     	      x++;
+      	      while (x < size)
+     	     	{
+      	      	  ft_putchar(92);
+    	       	  x++;
+    	      	  while (x < size)
+    	      	    {
+    	    	      ft_putchar(' ');
+    	    	      x++;
+    	    	    }
+    	    	}
+     	    }
       	}
       ft_putchar('\n');
       y++;
