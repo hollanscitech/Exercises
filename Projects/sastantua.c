@@ -7,38 +7,21 @@ void ft_putchar(char a)
 
 void sastantua(int size)
 {
-  int y = 0;
   int x = 0;
+  int y = 0;
+  size = (size) * (size) + 1;
   while (y < size)
-    { 
-      x = 0;
-      while (x < size)
-       	{
-     	  ft_putchar(47);
-      	  x++;
-          while (x < size)
-    	    {
-     	      ft_putchar(42);
-     	      x++;
-      	      while (x < size)
-     	     	{
-      	      	  ft_putchar(92);
-    	       	  x++;
-    	      	  while (x < size)
-    	      	    {
-    	    	      ft_putchar(' ');
-    	    	      x++;
-    	    	    }
-    	    	}
-     	    }
-      	}
-      ft_putchar('\n');
+    {
+      ft_putchar(36);
+      x++;
       y++;
     }
+  ft_putchar('\n');
+  x++;
 }
 
 int main(void)
 {
-  sastantua(5);
+  sastantua(3);
   return 0;
 }
