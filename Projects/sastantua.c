@@ -49,7 +49,17 @@ void sastantua(int size)
 
 int main(void)
 {
+  sastantua(0);
+  printf("\n");
+  sastantua(1);
+  printf("\n");
+  sastantua(2);
+  printf("\n");
   sastantua(3);
+  printf("\n");
+  sastantua(4);
+  printf("\n");
+  sastantua(5);
   return 0;
 }
 
