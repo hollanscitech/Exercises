@@ -29,11 +29,17 @@ int ft_GetWidth(int size)
   width = 7;
   counter = 1;
   while (counter < size)
+    {
+      width = width + 6 + (height * 2);
+      counter++;
+      height++;
+      if(counter % width >= 4)
 	{
 	  width = width + 6 + (height * 2);
 	  counter++;
 	  height++;
 	}
+    }
   return width;
 }
 
