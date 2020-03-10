@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 void ft_putchar(char a)
 {
@@ -61,16 +60,16 @@ void sastantua(int size)
       {
         ft_putchar(42);
         x++;
-    }
+      }
     ft_putchar('\n');
     y++;
-  }
+    }
 
 }
 
 int main(void)
 {
-  sastantua(2);
+  sastantua(1);
   return 0;
 }
 
