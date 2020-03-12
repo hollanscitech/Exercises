@@ -16,12 +16,12 @@ void ft_putnbr(int nb)
     {
       ft_putnbr(nb / 10);
     }
-  ft_put_char((nb % 10) + '0');
+  ft_put_char((nb % 10) + 48);
 }
 
 int main(void)
 {
-  ft_putnbr(100);
+  ft_putnbr(99);
   return (0);
 }
 
