@@ -20,3 +20,5 @@ int main(void)
   ft_ultimate_ft(j);
   printf("%d\n", *********j);
 }
+
+//
