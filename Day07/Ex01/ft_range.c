@@ -4,26 +4,26 @@
 int *ft_range(int min, int max)
 {
   int* arr;
-  arr = malloc(sizeof(int) * max);
-  if(arr == 0)
+  arr = malloc(sizeof(int) * (max - min));
+  if(arr == NULL)
     {
-      return 0;
+      return NULL;
     }
-  int i = min;
-  *arr = i;
-  while(i < max)
+  while(min < max)
     {
-      printf("%d ", i);
-      i++;
+      int i = 0;
+      arr[i] = min;
+      printf("%d ", arr[i]);
+      min++;
     }
-  return 0;
+  return arr;
   free(arr);
 }
 
 int main(void)
 {
-  int array[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-  ft_range(array[0], array[9]);
+  int array[] = { -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+  ft_range(*array, 10);
   return 0;
 }
 
