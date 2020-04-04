@@ -17,3 +17,5 @@ int main(void)
   ft_div_mod(&d);
   printf("%.2f\n", d-floor(d));
 }
+
+//unfinished
