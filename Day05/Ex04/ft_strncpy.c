@@ -25,3 +25,5 @@ int main(void)
   printf("%s", ft_strncpy(destination, source, num));
   return (0);
 }
+
+//
