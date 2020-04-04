@@ -22,7 +22,7 @@ void ft_putnbr(int nb)
 int ft_strlen(char *str)
 {
   int len = 0;
-  while(*str != 0)
+  while(*str != '\0')
     {
       str++;
       len++;
@@ -33,7 +33,7 @@ int ft_strlen(char *str)
 
 int main(void)
 {
-  char *str = "pneumonoultramicroscopicsilicovolcanoconiosis";
+  char *str = "hello world";
   ft_strlen(str);
   return (0);
 }
