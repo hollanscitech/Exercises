@@ -7,7 +7,7 @@
 Function 1 = starts pointer at first number or alphabet char. returns int.
 Function 2 = ends pointer at last num or alph char. returns int.
 Function 3 = formats a string by getting rid of spaces. returns a string.
-Function 4 = (strstr) scans through two strings, looking for a fingle_character match. When it's found, it compares the rest of the substring. returns int.
+Function 4 = (strstr) scans for a single character match between two strings. if there is a match, it will loop until the string chars no longer match . returns int.
 */
 
 //Ft 1
@@ -88,8 +88,8 @@ int main(void)
 {
   char *s1;
   char *s2;
-  s1 = "   main.c ";
-  s2 = " .c   ";
+  s1 = "   haystack ";
+  s2 = "  stack   ";
   int returned = match(s1, s2);
   printf("%d\n", returned);
   return 0;
