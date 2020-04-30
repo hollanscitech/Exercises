@@ -9,7 +9,8 @@ Function 2 = starts pointer at first number or alphabet char. returns int.
 Function 3 = ends pointer at last num or alph char. returns int.
 Function 4 = formats a string by getting rid of spaces. returns a string.
 Function 5 = counts the number of '*' in a string. returns an int.
-Function 6 = finds out whether two strings match. returns 1 if they do.
+Function 6 = finds the star character within a string, returns int.
+Function 7 = finds out whether two strings match. returns 1 if they do.
 */
 
 //Ft 1
@@ -93,7 +94,7 @@ int find_char(char *str)
   return 0;
 }
 
-//Ft 6
+//Ft 7
 int match(char *s1, char *s2)
 {
   int counter = 0;
@@ -128,6 +129,7 @@ int match(char *s1, char *s2)
   return 0;
 }
 
+//test
 void test(void)
 {
   if(match("hello", "hello") == 0)
