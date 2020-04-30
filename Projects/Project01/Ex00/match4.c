@@ -76,57 +76,177 @@ int star_count(char *str)
 }
 
 //Ft 6
+int find_char(char *str)
+{
+  char x = '*';
+  int i = strlen(str) - 1;
+  int counter = 0;
+  while(i >= 0)
+    {
+      counter++;
+      if(str[i] == x)
+	{
+	  return counter;
+	}
+      i--;
+    }
+  return 0;
+}
+
+//Ft 6
 int match(char *s1, char *s2)
 {
   int counter = 0;
   char *str1 = format_str(s1);
   char *str2 = format_str(s2);
   int length = strlen(str2);
-  int length2 = strlen(str1);
-  int i = strlen(str1);
-  int x = strlen(str2);
-  if(str2 == NULL || (strlen(str1)) < ((strlen(str2)) - star_count(str2)))
+  //int length2 = strlen(str1);
+  int i = strlen(str1) - 1;
+  int x = strlen(str2) - 1;
+  if((str2 == 0 || str1 == 0) || (str1[i] == 0 || str2[x] == 0))
     {
       return 0;
     }
-  while(i > 0)
-    {
-      if(str1[i] == str2[x])
-        {
-          counter++;
-        }
-      i--;
-      x--;
-    }
-  if(counter == length && counter == length2)
-    {
-      return 1;
-    }
-  i = strlen(str1);
-  x = strlen(str2);
-  counter = 0;
-  while(i > 0 && x > 0)
+  while(i >= 0 && x >= 0)
     {
       if(str1[i] == str2[x])
 	{
 	  counter++;
 	}
-      if(str1[i] != str2[x] && str2[x] == '*' && (str1[i - 1] == str2[x - 1] || str2[i - 1] == '*'))
+      if(str1[i] != str2[x] && str2[x] == '*') 
 	{
 	  counter++;
+	  break;
 	}
       i--;
       x--;
     }
-  if(counter == length)
+  if((counter == length) || (counter == find_char(str2)))
     {
       return 1;
     }
   return 0;
 }
 
+void test(void)
+{
+  if(match("hello", "hello") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("hello", "hello") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "**.c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "**.c") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "mat*ch.c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "mat*ch.c") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "m*a*****c*.c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "m*a*****c*.c") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "***adsads***") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "***adsads***") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "*") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "*") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "*atch.c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "*atch.c") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "*********c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "*********c") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("match.c", "*********") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("match.c", "*********") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("abcbd", "*b*") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("abcbd", "*b*") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("abc", "a**") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("abc", "a**") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("bonjour.c", "********c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("bonjour.c", "********c") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("bonjour.c", "***") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("bonjour.c", "***") == 1)
+    {
+     printf("Pass\n");
+    }
+  if(match("bonjour.c", "*.c") == 0)
+    {
+      printf("Fail\n");
+    }
+  if(match("bonjour.c", "*.c") == 1)
+    {
+     printf("Pass\n");
+    }
+}
+
 int main(int argc, char *argv[])
 {
+  test();
   if(argc == 3)
     {
       int returned = match(argv[1], argv[2]);
