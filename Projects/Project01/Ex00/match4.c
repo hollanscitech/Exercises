@@ -134,115 +134,87 @@ void test(void)
 {
   if(match("hello", "hello") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("hello", "hello") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail1\n");
     }
   if(match("match.c", "**.c") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "**.c") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail2\n");
     }
   if(match("match.c", "mat*ch.c") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "mat*ch.c") == 1)
-    {
-     printf("Pass\n");
-    }
-  if(match("match.c", "m*a*****c*.c") == 0)
-    {
-      printf("Fail\n");
-    }
-  if(match("match.c", "m*a*****c*.c") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail3\n");
     }
   if(match("match.c", "***adsads***") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "***adsads***") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail4\n");
     }
   if(match("match.c", "*") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "*") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail5\n");
     }
   if(match("match.c", "*atch.c") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "*atch.c") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail6\n");
     }
   if(match("match.c", "*********c") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "*********c") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail7\n");
     }
   if(match("match.c", "*********") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("match.c", "*********") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail8\n");
     }
   if(match("abcbd", "*b*") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("abcbd", "*b*") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail9\n");
     }
   if(match("abc", "a**") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("abc", "a**") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail10\n");
     }
   if(match("bonjour.c", "********c") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("bonjour.c", "********c") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail11\n");
     }
   if(match("bonjour.c", "***") == 0)
     {
-      printf("Fail\n");
-    }
-  if(match("bonjour.c", "***") == 1)
-    {
-     printf("Pass\n");
+      printf("Fail12\n");
     }
   if(match("bonjour.c", "*.c") == 0)
     {
-      printf("Fail\n");
+      printf("Fail13\n");
     }
-  if(match("bonjour.c", "*.c") == 1)
+  if(match("match.c", "*m*a****c*.c") == 0)
     {
-     printf("Pass\n");
+      printf("Fail14\n");
+    }
+  if(match("match.c", "m*atc*.c") == 0)
+    {
+      printf("Fail15\n");
+    }
+  if(match("match.c", "l*h.c") == 0)
+    {
+      printf("Fail16\n");
+    }
+  if(match("match.c", "*h.c") == 0)
+    {
+      printf("Fail17\n");
+    }
+  if(match("match.c", "***.c*") == 0)
+    {
+      printf("Fail18\n");
+    }
+  if(match("match.c", "ma*.c") == 0)
+    {
+      printf("Fail19\n");
+    }
+  if(match("match.c", "ma**c****.c") == 0)
+    {
+      printf("Fail20\n");
+    }
+  if(match("match.c", "*match.c") == 0)
+    {
+      printf("Fail21\n");
     }
 }
 
