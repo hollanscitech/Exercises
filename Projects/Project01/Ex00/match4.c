@@ -5,12 +5,12 @@
 
 /*
 Function 1 = writes a character at a time.
-Function 2 = starts pointer at first number or alphabet char. returns int.
-Function 3 = ends pointer at last num or alph char. returns int.
-Function 4 = formats a string by getting rid of spaces. returns a string.
-Function 5 = counts the number of '*' in a string. returns an int.
-Function 6 = finds the star character within a string, returns int.
-Function 7 = finds out whether two strings match. returns 1 if they do.
+Function 2 = counts the number of '*' in a string. returns an int.
+Function 3 = finds the star character within a string, returns int.
+Function 4 = matches if there are no chars in string or they are space chars
+Function 5 = matches if there is no star and both strings are exactly the same
+Function 6 = matches in cases when s2[0] is a star. "match" "*match"
+Function 7 = finds out if two strings match when there is a star in s2
 */
 
 //Ft 1
@@ -20,54 +20,13 @@ void ft_putchar(char c)
 }
 
 //Ft 2
-int ft_start(char *str)
-{
-  int i = 0;
-  while(str[i] != '\0' && str[i] == ' ')
-    {
-      i++;
-    }
-  return i;
-}
-
-//Ft 3
-int ft_end(char *str)
-{
-  int i = strlen(str);
-  while(str[i - 1] == ' ')
-    {
-      i--;
-    }
-  return i;
-}
-
-//Ft4
-char* format_str(char *str)
-{
-  int i = 0;
-  int start = ft_start(str);
-  int end = ft_end(str);
-  char *formatted_str;
-  formatted_str = malloc(sizeof(char) * ((end - start) + 1));
-  while(start < end)
-    {
-      formatted_str[i] = str[start];
-      i++;
-      start++;
-    }
-  formatted_str[i] = '\0';
-  return formatted_str;
-}
-
-//Ft 5
 int star_count(char *str)
 {
   int i = 0;
   int counter = 0;
-  str = format_str(str);
-  while(str[i] != '\0')
+  while (str[i] != '\0')
     {
-      if(str[i] == '*')
+      if (str[i] == '*')
         {
           counter++;
         }
@@ -76,16 +35,16 @@ int star_count(char *str)
   return counter;
 }
 
-//Ft 6
+//Ft 3
 int find_char(char *str)
 {
   char x = '*';
   int i = strlen(str) - 1;
   int counter = 0;
-  while(i >= 0)
+  while (i >= 0)
     {
       counter++;
-      if(str[i] == x)
+      if (str[i] == x)
 	{
 	  return counter;
 	}
@@ -94,143 +53,129 @@ int find_char(char *str)
   return 0;
 }
 
-//Ft 7
-int match(char *s1, char *s2)
+//Ft 4
+int match0(char *s1, char *s2)
 {
-  int counter = 0;
-  char *str1 = format_str(s1);
-  char *str2 = format_str(s2);
-  int length = strlen(str2);
-  //int length2 = strlen(str1);
-  int i = strlen(str1) - 1;
-  int x = strlen(str2) - 1;
-  if((str2 == 0 || str1 == 0) || (str1[i] == 0 || str2[x] == 0))
-    {
-      return 0;
-    }
-  while(i >= 0 && x >= 0)
-    {
-      if(str1[i] == str2[x])
-	{
-	  counter++;
-	}
-      if(str1[i] != str2[x] && str2[x] == '*') 
-	{
-	  counter++;
-	  break;
-	}
-      i--;
-      x--;
-    }
-  if((counter == length) || (counter == find_char(str2)))
+  int x = 0;
+  if (s1[x] == '\0' && s2[x] == '\0')
     {
       return 1;
     }
   return 0;
 }
 
-//test
-void test(void)
+//Ft 5
+int match1(char *s1, char *s2)
 {
-  if(match("hello", "hello") == 0)
+  int len1 = strlen(s1);
+  int len2 = strlen(s2);
+  int i1 = len1 - 1;
+  int i2 = len2 - 1;
+  int counter = 0;
+  while (i1 >= 0 && i2 >= 0 && star_count(s2) == 0)
     {
-      printf("Fail1\n");
+      if (s1[i1] == s2[i2])
+        {
+          counter++;
+	}
+      i1--;
+      i2--;
     }
-  if(match("match.c", "**.c") == 0)
+  if (counter == len1 && counter == len2)
     {
-      printf("Fail2\n");
+      return 1;
     }
-  if(match("match.c", "mat*ch.c") == 0)
+  else
     {
-      printf("Fail3\n");
+      return 0;
     }
-  if(match("match.c", "***adsads***") == 0)
+}
+
+//Ft 6
+int match2(char *s1, char *s2)
+{
+  int counter  = 0;
+  int round = -1;
+  int len1 = strlen(s1);
+  int len2 = strlen(s2);
+  int i1 = len1 - 1;
+  int i2 = len2 - 1;
+  while (i1 >= 0 && i2 >= 0)
     {
-      printf("Fail4\n");
+      round++;
+      if (s1[i1] == s2[i2])
+        {
+          counter++;
+        }
+      if (s1[i1] != s2[i2] && s2[i2] == '*' && counter == round && i2 == 0)
+        {
+          return 1;
+        }
+      i1--;
+      i2--;
     }
-  if(match("match.c", "*") == 0)
+  return 0;
+}
+      
+//Ft 4
+int match3(char *s1, char *s2)
+{
+  int len1 = strlen(s1);
+  int len2 = strlen(s2);
+  int i1 = len1 - 1;
+  int i2 = len2 - 1;
+  int consi2 = i2;
+  int counter  = 0;
+  int x = 0;
+  while (i1 >= 0 && i2 >= 0)
     {
-      printf("Fail5\n");
+      if (s1[i1] != s2[i2] && s2[i2] == '*')
+	{
+	  counter++;
+	  while (x <= i2)
+	    {
+	      if (s1[x] == s2[x])
+		{
+		  counter++;
+		}
+	      x++;
+	    }
+	}
+      i1--;
+      i2--;
     }
-  if(match("match.c", "*atch.c") == 0)
+  if (counter == len1 && i2 == 0 && s2[i2] == '*')
     {
-      printf("Fail6\n");
+      return 1;
     }
-  if(match("match.c", "*********c") == 0)
+  if (counter == (consi2 + star_count(s2)))
     {
-      printf("Fail7\n");
+      return 1;
     }
-  if(match("match.c", "*********") == 0)
-    {
-      printf("Fail8\n");
-    }
-  if(match("abcbd", "*b*") == 0)
-    {
-      printf("Fail9\n");
-    }
-  if(match("abc", "a**") == 0)
-    {
-      printf("Fail10\n");
-    }
-  if(match("bonjour.c", "********c") == 0)
-    {
-      printf("Fail11\n");
-    }
-  if(match("bonjour.c", "***") == 0)
-    {
-      printf("Fail12\n");
-    }
-  if(match("bonjour.c", "*.c") == 0)
-    {
-      printf("Fail13\n");
-    }
-  if(match("match.c", "*m*a****c*.c") == 0)
-    {
-      printf("Fail14\n");
-    }
-  if(match("match.c", "m*atc*.c") == 0)
-    {
-      printf("Fail15\n");
-    }
-  if(match("match.c", "l*h.c") == 0)
-    {
-      printf("Fail16\n");
-    }
-  if(match("match.c", "*h.c") == 0)
-    {
-      printf("Fail17\n");
-    }
-  if(match("match.c", "***.c*") == 0)
-    {
-      printf("Fail18\n");
-    }
-  if(match("match.c", "ma*.c") == 0)
-    {
-      printf("Fail19\n");
-    }
-  if(match("match.c", "ma**c****.c") == 0)
-    {
-      printf("Fail20\n");
-    }
-  if(match("match.c", "*match.c") == 0)
-    {
-      printf("Fail21\n");
-    }
+  return 0;
 }
 
 int main(int argc, char *argv[])
 {
-  test();
-  if(argc == 3)
+  if (argc == 3)
     {
-      int returned = match(argv[1], argv[2]);
-      if(returned == 1)
+      int returned0 = match0(argv[1], argv[2]);
+      int returned1 = match1(argv[1], argv[2]);
+      int returned2 = match2(argv[1], argv[2]);
+      int returned3 = match3(argv[1], argv[2]);
+      if (returned0 || returned1 || returned2 || returned3 == 1)
 	{
-	  printf("Strings Do Match (%d)\n", returned);
+	  printf("Strings Do Match0 (%d)\n", returned0);
+	  printf("Strings Do Match1 (%d)\n", returned1);
+	  printf("Strings Do Match2 (%d)\n", returned2);
+	  printf("Strings Do Match3 (%d)\n", returned3);
 	}
       else
 	{
-	  printf("Strings Do Not Match (%d)\n", returned);
+	  printf("Strings Do Not Match0 (%d)\n", returned0);
+	  printf("Strings Do Not Match1 (%d)\n", returned1);
+	  printf("Strings Do Not Match2 (%d)\n", returned2);
+	  printf("Strings Do Not Match3 (%d)\n", returned3);
 	}
     }
   return 0;
