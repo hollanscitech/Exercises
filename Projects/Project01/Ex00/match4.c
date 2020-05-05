@@ -117,7 +117,7 @@ int match2(char *s1, char *s2)
   return 0;
 }
       
-//Ft 4
+//Ft 7
 int match3(char *s1, char *s2)
 {
   int len1 = strlen(s1);
