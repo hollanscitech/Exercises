@@ -1,3 +1,4 @@
+//
 #include <stdio.h>
 
 int nmatch(char *s1, char *s2)
