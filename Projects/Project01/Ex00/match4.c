@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 /*
+//
 Function 1 = writes a character at a time.
 Function 2 = counts the number of '*' in a string. returns an int.
 Function 3 = finds the star character within a string, returns int.
