@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 //if s2 has no star chars
 int nmatch2(char *s1, char *s2) {
   int i = 0;
