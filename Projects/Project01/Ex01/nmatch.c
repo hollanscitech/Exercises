@@ -4,16 +4,22 @@
 //if s2 has no star chars
 int nmatch2(char *s1, char *s2) {
   int i = 0;
+  int x = 0;
   int counter = 0;
-  while (s1[i] != '\0' && s2[i] != '\0') {
-    if (s1[i] == s2[i]) {
-      counter++;
+  while (s2[x] != '\0') {
+    i = 0;
+    while (s1[i] != '\0') {
+      if (s2[x] == s1[i]) {
+	counter++;
+	x++;
+      }
+      i++;
     }
-    i++;
+    x++;
   }
   return counter;
 }
-
+ 
 //when s1 is 0 and s2 is only a star char
 int nmatch3(char *s1, char *s2) {
   if (*s1 == 0 && *s2 == 0) {
