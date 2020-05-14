@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int nmatch(char *s1, char *s2) {
+  //deals with "example" "" || "" ""
   if (*s2 == '\0') {
     if(*s1 != '\0') {
       return 0;
@@ -19,6 +20,7 @@ int nmatch(char *s1, char *s2) {
     count = count + nmatch(rest, s2 + 1);
     return count;
   }
+  //deals with s1 being empty && *s2 not being a star && s2 not being empty
   if (*s1 == '\0') {
     return 0;
   }
