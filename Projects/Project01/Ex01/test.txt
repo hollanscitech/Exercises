@@ -1,11 +1,11 @@
 (A) "hello" "hello" == 1  both strings match once
 (B) "hello" "h" == 0 both strings never match
-(C) "hello" "hell" == 0 both strigns never match
-(D) "" " " == 0 an empty string does not match a string with a sapce
+(C) "hello" "hell" == 0 both strings never match
+(D) "" " " == 0 an empty string does not match a string with a space
 (E) "" "" == 1 empty strings match
 (F) " " "*" == 1 a star can match a space character
 (G) "hello" "*" == 1 a star matches any character string
-(H) "hello" "h" == 0 both strings never match
+(H) "hello" "h" == 0 both strings never match in full
 (I) "hello" "he" == 0 both strings never match
 (J) "hello" "h*" == 1 star matches "ello" string to make strings match once
 (K) "hello" "hlo" == 0 strings never match entirely
@@ -21,6 +21,6 @@
 (U) "abc" "*" == 1 star	replaced by "abc" making strings match once
 (V) "abc" "**" == 4 ("abc", nothing) and (nothing, "abc") and ("ab", "c") and ("a", "bc")
 (W) "abc" "***" == 10 ("abc", nothing, nothing) and (nothing, "abc", nothing) and (nothing, nothing, "abc") and ("a", "b", "c") and ("ab", "c", nothing) and ("a", "bc", nothing) and (nothing, "a" "bc") and (nothing, "ab", "c") and ("a", nothing, "bc") and ("ab", nothing, "c")
-(X) "abc" "**a" == 0 char "a" can not be moved to the front of string
+(X) "abc" "**a" == 0 the best attempt to make both strings match is (nothing, nothing) which leaves s1 = "abc" and s2 = "a", but a star char is needed after "a" in order to make both strings identical. 
 (y) "abc" "*a*" == 1 (nothing, "bc")
 (Z) "abc" "cba" == 0 strings do not match 
