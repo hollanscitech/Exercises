@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int nmatch(char *s1, char *s2) {
-  //deals with "example" "" || "" ""
+  //deals with "example" "" == 0 || "" "" == 1
   if (*s2 == '\0') {
     if(*s1 != '\0') {
       return 0;
@@ -10,6 +10,7 @@ int nmatch(char *s1, char *s2) {
       return 1;
     }
   }
+  //
   if (*s2 == '*') {
     char *rest = s1;
     int count = 0;
@@ -24,6 +25,7 @@ int nmatch(char *s1, char *s2) {
   if (*s1 == '\0') {
     return 0;
   }
+  //iterates through both strings as long as the pointers are equal each time
   if (*s2 == *s1) {
     return nmatch(s1 + 1, s2 + 1);
   }
