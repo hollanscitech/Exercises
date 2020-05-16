@@ -10,7 +10,7 @@ int nmatch(char *s1, char *s2) {
       return 1;
     }
   }
-  //
+  //deals with a star char
   if (*s2 == '*') {
     char *rest = s1;
     int count = 0;
