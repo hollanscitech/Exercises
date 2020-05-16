@@ -35,83 +35,135 @@ int nmatch(char *s1, char *s2) {
 }
 
 void test(void) {
-  if (nmatch("hello", "hello") == 0) {
-    printf("0 Match (A)\n");
+  //Test 1
+  if (nmatch("hello", "hello") == 1) {
+    int count = nmatch("hello", "hello");
+    printf("Test 1 Passed\nS1: hello\nS2: hello\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
+  //Test 2
   if (nmatch("hello", "h") == 0) {
-    printf("0 Match (B)\n");
+    int count = nmatch("hello", "h");
+    printf("Test 2 Passed\nS1: hello\nS2: h\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
+  //Test 3
   if (nmatch("hello", "hell") == 0) {
-    printf("0 Match (C)\n");
+    int count = nmatch("hello", "hell");
+    printf("Test 3 Passed\nS1: hello\nS2: hell\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
+  //Test 4
   if (nmatch("", " ") == 0) {
-    printf("0 Match (D)\n");
+    int count = nmatch("", " ");
+    printf("Test 4 Passed\nS1: ''\nS2: ' '\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("", "") == 0) {
-    printf("0 Match (E)\n");
+  //Test 5
+  if (nmatch("", "") == 1) {
+    int count = nmatch("", "");
+    printf("Test 5 Passed\nS1: ''\nS2: ''\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch(" ", "*") == 0) {
-    printf("0 Match (F)\n");
+  //Test 6
+  if (nmatch(" ", "*") == 1) {
+    int count = nmatch(" ", "*");
+    printf("Test 6 Passed\nS1: ' '\nS2: *\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("hello", "*") == 0) {
-    printf("0 Match (G)\n");
+  //Test 7
+  if (nmatch("hello", "*") == 1) {
+    int count = nmatch("hello", "*");
+    printf("Test 7 Passed\nS1: hello\nS2: *\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
+  //Test 8
   if (nmatch("hello", "h") == 0) {
-    printf("0 Match (H)\n");
+    int count = nmatch("hello", "h");
+    printf("Test 8 Passed\nS1: hello\nS2: h\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
+  //Test 9
   if (nmatch("hello", "he") == 0) {
-    printf("0 Match (I)\n");
+    int count = nmatch("hello", "he");
+    printf("Test 9 Passed\nS1: hello\nS2: he\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("hello", "h*") == 0) {
-    printf("0 Match (J)\n");
+  //Test 10
+  if (nmatch("hello", "h*") == 1) {
+    int count = nmatch("hello", "h*");
+    printf("Test 10 Passed\nS1: hello\nS2: h*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
+  //Test 11
   if (nmatch("hello", "hlo") == 0) {
-    printf("0 Match (K)\n");
+    int count = nmatch("hello", "hlo");
+    printf("Test 11 Passed\nS1: hello\nS2: hlo\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("hello", "hell*") == 0) {
-    printf("0 Match (L)\n");
+  //Test 12
+  if (nmatch("hello", "hell*") == 1) {
+    int count = nmatch("hello", "hell*");
+    printf("Test 12 Passed\nS1: hello\nS2: hell*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("hello", "hello*") == 0) {
-    printf("0 Match (M)\n");
+  //Test 13
+  if (nmatch("hello", "hello*") == 1) {
+    int count = nmatch("hello", "hello*");
+    printf("Test 13 Passed\nS1: hello\nS2: hello*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("hello", "he*") == 0) {
-    printf("0 Match (N)\n");
+  //Test 14
+  if (nmatch("hello", "he*") == 1) {
+    int count = nmatch("hello", "he*");
+    printf("Test 14 Passed\nS1: hello\nS2: he*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
+  //Test 15
   if (nmatch("hello", "lo") == 0) {
-    printf("0 Match (O)\n");
+    int count = nmatch("hello", "lo");
+    printf("Test 15 Passed\nS1: hello\nS2: lo\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abcbd", "*b*") == 0) {
-    printf("0 Match (P)\n");
+  //Test 16
+  if (nmatch("abcbd", "*b*") == 2) {
+    int count = nmatch("abcbd", "*b*");
+    printf("Test 16 Passed\nS1: abcbd\nS2: *b*\nExpected Output: 2\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "a**") == 0) {
-    printf("0 Match (Q)\n");
+  //Test 17
+  if (nmatch("abc", "a**") == 3) {
+    int count = nmatch("abc", "a**");
+    printf("Test 17 Passed\nS1: abc\nS2: a**\nExpected Output: 3\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "abc") == 0) {
-    printf("0 Match (R)\n");
+  //Test 18
+  if (nmatch("abc", "abc") == 1) {
+    int count = nmatch("abc", "abc");
+    printf("Test 18 Passed\nS1: abc\nS2: abc\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "ab*") == 0) {
-    printf("0 Match (S)\n");
+  //Test 19
+  if (nmatch("abc", "ab*") == 1) {
+    int count = nmatch("abc", "ab*");
+    printf("Test 19 Passed\nS1: abc\nS2: ab*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "abc*") == 0) {
-    printf("0 Match (T)\n");
+  //Test 20
+  if (nmatch("abc", "abc*") == 1) {
+    int count = nmatch("abc", "abc*");
+    printf("Test 20 Passed\nS1: abc\nS2: abc*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "*") == 0) {
-    printf("0 Match (U)\n");
+  //Test 21
+  if (nmatch("abc", "*") == 1) {
+    int count = nmatch("abc", "*");
+    printf("Test 21 Passed\nS1: abc\nS2: *\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "**") == 0) {
-    printf("0 Match (V)\n");
+  //Test 22
+  if (nmatch("abc", "**") == 4) {
+    int count = nmatch("abc", "**");
+    printf("Test 22 Passed\nS1: abc\nS2: **\nExpected Output: 4\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "***") == 0) {
-    printf("0 Match (W)\n");
+  //Test 23
+  if (nmatch("abc", "***") == 10) {
+    int count = nmatch("abc", "***");
+    printf("Test 23 Passed\nS1: abc\nS2: ***\nExpected Output: 10\nOutput Received: %d\n\n", count);
   }
+  //Test 24
   if (nmatch("abc", "**a") == 0) {
-    printf("0 Match (X)\n");
+    int count = nmatch("abc", "**a");
+    printf("Test 24 Passed\nS1: abc\nS2: **a\nExpected Output: 0\nOutput Received: %d\n\n", count);
   }
-  if (nmatch("abc", "*a*") == 0) {
-    printf("0 Match (Y)\n");
+  //Test 25
+  if (nmatch("abc", "*a*") == 1) {
+    int count = nmatch("abc", "*a*");
+    printf("Test 25 Passed\nS1: abc\nS2: *a*\nExpected Output: 1\nOutput Received: %d\n\n", count);
   }
+  //Test 26
   if (nmatch("abc", "cba") == 0) {
-    printf("0 Match (Z)\n");
+    int count = nmatch("abc", "cba");
+    printf("Test 26 Passed\nS1: abc\nS2: cba\nExpected Output: 0\nOutput Received: %d\n", count);
   }
 }
 
