@@ -1,127 +1,135 @@
-#include <unistd.h>
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
-/*
-Function 1 = counts the number of '*' in a string. returns an int.
-Function 2 = matches if there are no chars in string or they are space chars
-Function 3 = matches if there is no star and both strings are exactly the same
-Function 4 = matches in cases when s2[0] is a star. "match" "*match"
-Function 5 = finds out if two strings match when there is a star in s2
-*/
-
-//Ft 1
-int star_count(char *str) {
-  int i = 0;
-  int counter = 0;
-  while (str[i] != '\0') {
-    if (str[i] == '*') {
-      counter++;
+int match(char *s1, char *s2) {
+  //deals with "example" "" == 0 || "" "" == 1
+  if (*s2 == '\0') {
+    if(*s1 != '\0') {
+      return 0;
     }
-    i++;
-  }
-  return counter;
-}
-
-//Ft 2
-int match0(char *s1, char *s2) {
-  int x = 0;
-  if (s1[x] == '\0' && s2[x] == '\0') {
-    return 1;
-  }
-  return 0;
-}
-
-//Ft 3
-int match1(char *s1, char *s2) {
-  int len1 = strlen(s1);
-  int len2 = strlen(s2);
-  int i1 = len1 - 1;
-  int i2 = len2 - 1;
-  int counter = 0;
-  while (i1 >= 0 && i2 >= 0 && star_count(s2) == 0) {
-    if (s1[i1] == s2[i2]) {
-      counter++;
+    else {
+      return 1;
     }
-    i1--;
-    i2--;
   }
-  if (counter == len1 && counter == len2) {
-    return 1;
+  //
+  if (*s2 == '*') {
+    char *rest = s1;
+    int count = 0;
+    while (*rest != '\0') {
+      count = count + match(rest, s2 + 1);
+      rest++;
+    }
+    count = count + match(rest, s2 + 1);
+    return count;
+  }
+  //deals with s1 being empty && *s2 not being a star && s2 not being empty
+  if (*s1 == '\0') {
+    return 0;
+  }
+  //iterates through both strings as long as the pointers are equal each time
+  if (*s2 == *s1) {
+    return match(s1 + 1, s2 + 1);
   }
   else {
     return 0;
   }
 }
 
-//Ft 4
-int match2(char *s1, char *s2) {
-  int counter  = 0;
-  int round = -1;
-  int i1 = strlen(s1) - 1;
-  int i2 = strlen(s2) - 1;
-  while (i1 >= 0 && i2 >= 0) {
-    round++;
-    if (s1[i1] == s2[i2]) {
-      counter++;
-    }
-    if (s1[i1] != s2[i2] && s2[i2] == '*' && counter == round && i2 == 0) {
-      return 1;
-    }
-    i1--;
-    i2--;
+void test(void) {
+  //Test 1
+  if(match("hello", "hello") > 0) {
+    printf("Test 1 Passed\nS1: hello\nS2: hello\nOutput: 1\n\n");
   }
-  return 0;
-}
-
-//Ft 5
-int match3(char *s1, char *s2) {
-  int len1 = strlen(s1);
-  int i1 = strlen(s1) - 1;
-  int i2 = strlen(s2) - 1;
-  int consi2 = i2;
-  int counter = 0;
-  while (i1 >= 0 && i2 >= 0) {
-    if (s1[i1] != s2[i2] && s2[i2] == '*') {
-      counter++;
-      while (*s2 <= i2) {
-	if (*s1 == *s2) {
-	  counter++;
-	}
-	s1++;
-	s2++;
-      }
-    }
-    i1--;
-    i2--;
+  //Test 2
+  if(match("match.c", "**.c") > 0) {
+    printf("Test 2 Passed\nS1: hello\nS2: hello\nOutput: 1\n\n");
   }
-  if (counter == len1 && i2 == 0 && s2[i2] == '*') {
-    return 1;
+  //Test 3
+  if(match("match.c", "mat*ch.c") > 0) {
+    printf("Test 3 Passed\nS1: match.c\nS2: mat*ch.c\nOutput: 1\n\n");
   }
-  if (counter == (consi2 + star_count(s2))) {
-    return 1;
+  //Test 4
+  if(match("match.c", "***adsads***") == 0) {
+    printf("Test 4 Passed\nS1: match.c\nS2: ***adsads***\nOutput: 0\n\n");
   }
-  return 0;
+  //Test 5
+  if(match("match.c", "*") > 0) {
+    printf("Test 5 Passed\nS1: match.c\nS2: *\nOutput: 1\n\n");
+  }
+  //Test 6
+  if(match("match.c", "*atch.c") > 0) {
+    printf("Test 6 Passed\nS1: match.c\nS2: *atch.c\nOutput: 1\n\n");
+  }
+  //Test 7
+  if(match("match.c", "*********c") > 0) {
+    printf("Test 7 Passed\nS1: match.c\nS2: *********c\nOutput: 1\n\n");
+  }
+  //Test 8
+  if(match("match.c", "*********") > 0) {
+    printf("Test 8 Passed\nS1: match.c\nS2: *********\nOutput: 1\n\n");
+  }
+  //Test 9
+  if(match("abcbd", "*b*") > 0) {
+    printf("Test 9 Passed\nS1: abcbd\nS2: *b*\nOutput: 1\n\n");
+  }
+  //Test 10
+  if(match("abc", "a**") > 0) {
+    printf("Test 10 Passed\nS1: abc\nS2: a**\nOutput: 1\n\n");
+  }
+  //Test 11
+  if(match("bonjour.c", "********c") > 0) {
+    printf("Test 11 Passed\nS1: bonjour.c\nS2: ********c\nOutput: 1\n\n");
+  }
+  //Test 12
+  if(match("bonjour.c", "***") > 0) {
+    printf("Test 12 Passed\nS1: bonjour.c\nS2: ***\nOutput: 1\n\n");
+  }
+  //Test 13
+  if(match("bonjour.c", "*.c") > 0) {
+    printf("Test 13 Passed\nS1: bonjour.c\nS2: *.c\nOutput: 1\n\n");
+  }
+  //Test 14
+  if(match("match.c", "*m*a****c*.c") > 0) {
+    printf("Test 14 Passed\nS1: match.c\nS2: *m*a****c*.c\nOutput: 1\n\n");
+  }
+  //Test 15
+  if(match("match.c", "m*atc*.c") > 0) {
+    printf("Test 15 Passed\nS1: match.c\nS2: m*atc*.c\nOutput: 1\n\n");
+  }
+  //Test 16
+  if(match("match.c", "l*h.c") == 0) {
+    printf("Test 16 Passed\nS1: match.c\nS2: l*h.c\nOutput: 0\n\n");
+  }
+  //Test 17
+  if(match("match.c", "*h.c") > 0) {
+    printf("Test 17 Passed\nS1: match.c\nS2: *h.c\nOutput: 1\n\n");
+  }
+  //Test 18
+  if(match("match.c", "***.c*") > 0) {
+    printf("Test 18 Passed\nS1: match.c\nS2: ***.c*\nOutput: 1\n\n");
+  }
+  //Test 19
+  if(match("match.c", "ma*.c") > 0) {
+    printf("Test 19 Passed\nS1: match.c\nS2: ma*.c\nOutput: 1\n\n");
+  }
+  //Test 20
+  if(match("match.c", "ma**c****.c") > 0) {
+    printf("Test 20 Passed\nS1: match.c\nS2: ma**c****.c\nOutput: 1\n\n");
+  }
+  //Test 21
+  if(match("match.c", "*match.c") > 0) {
+    printf("Test 21 Passed\nS1: match.c\nS2: *match.c\nOutput: 1\n");
+  }
 }
 
 int main(int argc, char *argv[]) {
+  test();
   if (argc == 3) {
-    int returned0 = match0(argv[1], argv[2]);
-    int returned1 = match1(argv[1], argv[2]);
-    int returned2 = match2(argv[1], argv[2]);
-    int returned3 = match3(argv[1], argv[2]);
-    if (returned0 || returned1 || returned2 || returned3 == 1) {
-      printf("Strings Do Match0 (%d)\n", returned0);
-      printf("Strings Do Match1 (%d)\n", returned1);
-      printf("Strings Do Match2 (%d)\n", returned2);
-      printf("Strings Do Match3 (%d)\n", returned3);
+    int returned = match(argv[1], argv[2]);
+    if (returned >= 1) {
+      printf("Output: 1\nStrings Match\n");
     }
-    else {
-      printf("Strings Do Not Match0 (%d)\n", returned0);
-      printf("Strings Do Not Match1 (%d)\n", returned1);
-      printf("Strings Do Not Match2 (%d)\n", returned2);
-      printf("Strings Do Not Match3 (%d)\n", returned3);
+    if (returned == 0) {
+      printf("Output: 0\nStrings Do Not Match\n");
     }
   }
   return 0;
