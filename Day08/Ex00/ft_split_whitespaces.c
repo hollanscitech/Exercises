@@ -46,7 +46,7 @@ int ft_format_end(char *str, int end_index)
 char *ft_format_str(char *str, int start_index, int end_index)
 {
   char* formatted_str;
-  formatted_str = malloc(sizeof(char) * (ft_format_end(str, end_index) + 1));
+  formatted_str = (char*) malloc(sizeof(char) * (ft_format_end(str, end_index) + 1));
   int start = ft_format_start(str, start_index);
   int end = ft_format_end(str, end_index);
   int n = 0;
@@ -111,7 +111,7 @@ char **ft_make_arr(char *formatted_str)
   char** str_arr;
   const int nWords = ft_count_words(formatted_str);
 
-  str_arr = malloc(sizeof(char*) * (nWords + 1));
+  str_arr = (char**) malloc(sizeof(char*) * (nWords + 1));
 
   int x = 0;
   int y = 0;
@@ -121,7 +121,7 @@ char **ft_make_arr(char *formatted_str)
     {
       x = 0;
       char *str;
-      str = malloc(sizeof(char) * (mall_index(formatted_str, y) + 1));
+      str = (char*) malloc(sizeof(char) * (mall_index(formatted_str, y) + 1));
       while(formatted_str[i] != ' ' && formatted_str[i] != '\0')
 	{
 	  str[x] = formatted_str[i];
@@ -156,13 +156,14 @@ void ft_print(char **str_arr)
     }
 }
 
-int main(void)
-{
-  char str[] = "     Hello  World     ";
+int main(void) {
+  //include string of characters.
+  char str[] = "You don’t have to be the bad guy. You are the most talented, most interesting, and most extraordinary person in the universe. And you are capable of amazing things. Because you are the Special. And so am I. And so is everyone. The prophecy is made up, but it’s also true. It’s about all of us. Right now, it’s about you. And you... still... can change everything.";
   int start_index;
   int end_index;
+  //declare indexing (start_index increments while end_index decrements)
   start_index = 0;
-  end_index =  21;
+  end_index =  380;
   char *formatted_str = ft_format_str(str, start_index, end_index);
   ft_print(ft_make_arr(formatted_str));
   return 0;
