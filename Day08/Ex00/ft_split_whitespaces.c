@@ -59,7 +59,6 @@ char *ft_format_str(char *str, int start_index, int end_index)
             {
 	      formatted_str[n] = ' ';
 	      n++;
-              formatted_str[n] = str[start];
             }
         }
       formatted_str[n] = str[start];
@@ -163,7 +162,7 @@ int main(void) {
   int end_index;
   //declare indexing (start_index increments while end_index decrements)
   start_index = 0;
-  end_index =  380;
+  end_index = 380;
   char *formatted_str = ft_format_str(str, start_index, end_index);
   ft_print(ft_make_arr(formatted_str));
   return 0;
